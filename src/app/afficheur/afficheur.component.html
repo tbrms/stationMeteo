@@ -1,0 +1,7 @@
+<p>Afficheur</p>
+<p>Date: {{dernierBulletin?.date | date : 'dd/MM/yyyy HH:mm:ss'}}</p>
+<p>Temperature: {{dernierBulletin?.temperature}}°C</p>
+<p>Pression:  {{dernierBulletin?.pression}} hPa</p>
+<p>Humidité:  {{dernierBulletin?.humidite}}%</p>
+
+<button (click)="maj()">maj</button>
