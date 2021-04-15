@@ -10,13 +10,11 @@ import { throwError, Observable } from 'rxjs';
 })
 export class BulletinMeteoWebService {
 
-  public dernierBulletin : BulletinMeteo;
+  public dernierBulletin : BulletinMeteo | undefined;
 
-  //baseUrl = 'http://thsrms.com:3535/meteo/getBulletinMeteoNow';
-  baseUrl = 'http://localhost:8080/meteodev/getBulletinMeteoNow';
+  baseUrl = 'http://localhost:8080/meteodev/getReleveMeteoInstantane';
 
   constructor(private http: HttpClient) {
-    this.dernierBulletin = new BulletinMeteo('1','2021-02-01',20,1024,80); 
    }
 
   getLastBulletinMeteo(): Observable<BulletinMeteo> {

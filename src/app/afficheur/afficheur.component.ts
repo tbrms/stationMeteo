@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { BulletinMeteo } from 'src/shared/models/bulletinMeteo.model';
 import { BulletinMeteoWebService } from 'src/shared/webservices/bulletinMeteo.webservice';
 
@@ -11,47 +10,21 @@ import { BulletinMeteoWebService } from 'src/shared/webservices/bulletinMeteo.we
 export class AfficheurComponent implements OnInit {
 
   public dernierBulletin: BulletinMeteo | undefined;
-  //public dernierBulletinWebService: Observable<BulletinMeteo>;
 
-  constructor(private bulletinMeteoWebService : BulletinMeteoWebService) {
-    this.getDernierBulletinWebService();
-    //this.dernierBulletinWebService = this.getDernierBulletinWebService();
-   }
+  constructor(private bulletinMeteoWebService : BulletinMeteoWebService) { }
 
-  ngOnInit(): void {
-    
-
+  ngOnInit(): void { 
+    this.getDernierBulletin();
   }
 
-  getDernierBulletin(): BulletinMeteo {
-    return new BulletinMeteo('1','2021-02-01',20,1024,80);
-  }
-
-  getDernierBulletinWebService() {
+  getDernierBulletin() {
     this.bulletinMeteoWebService.getLastBulletinMeteo().subscribe(
       (retour: BulletinMeteo) => {
-        console.log(retour);
+        //console.log(retour);
         this.dernierBulletin = retour;
       }, (error) => {
         console.log(error);
-      }, () => {
-        
       }
     );
   }
-
-  maj(): void {
-    //this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
-    this.bulletinMeteoWebService.getLastBulletinMeteo().subscribe(
-      (retour: BulletinMeteo) => {
-        console.log(retour);
-        this.dernierBulletin = retour;
-      }, (error) => {
-        console.log(error);
-      }, () => {
-        
-      }
-    );
-  }
-
 }

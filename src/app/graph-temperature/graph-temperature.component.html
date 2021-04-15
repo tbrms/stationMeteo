@@ -1,0 +1,18 @@
+<h3>Température</h3>
+<button (click)="getTemperatures()">Rafraichir</button>
+<ngx-charts-line-chart
+  [view]="view"
+  [scheme]="colorScheme"
+  [results]="temperatures"
+  [gradient]="gradient"
+  [xAxis]="showXAxis"
+  [yAxis]="showYAxis"
+  [legend]="showLegend"
+  [showXAxisLabel]="showXAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [autoScale]="autoScale"
+  [timeline]="timeline"
+  (select)="onSelect($event)">
+</ngx-charts-line-chart>
