@@ -1,7 +1,8 @@
-<p>Afficheur</p>
-<p>Date: {{dernierBulletin?.date | date : 'dd/MM/yyyy HH:mm:ss'}}</p>
-<p>Temperature: {{dernierBulletin?.temperature}}°C</p>
-<p>Pression:  {{dernierBulletin?.pression}} hPa</p>
-<p>Humidité:  {{dernierBulletin?.humidite}}%</p>
-
-<button (click)="getDernierBulletin()">Rafraichir</button>
+<div>
+<h3>Afficheur</h3>
+<button (click)="getDernierBulletin()">Rafraichir</button><br>
+Date: {{dernierBulletin?.date | date : 'dd/MM/yyyy HH:mm:ss'}}<br>
+Temperature: {{dernierBulletin?.temperature}}°C<br>
+Pression:  {{dernierBulletin?.pression}} hPa<br>
+Humidité:  {{dernierBulletin?.humidite}}%<br>
+</div>

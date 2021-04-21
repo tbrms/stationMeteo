@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map} from 'rxjs/operators';
+import { map, tap} from 'rxjs/operators';
 import { DonneesGraphWebService } from 'src/shared/webservices/donneesGraph.webservice';
 
 @Component({
-  selector: 'app-graph-temperature',
-  templateUrl: './graph-temperature.component.html',
-  styleUrls: ['./graph-temperature.component.scss']
+  selector: 'app-graph-pression',
+  templateUrl: './graph-pression.component.html',
+  styleUrls: ['./graph-pression.component.scss']
 })
-export class GraphTemperatureComponent implements OnInit {
+export class GraphPressionComponent implements OnInit {
 
-  temperatures: any[]= [];
+  pressions: any[]= [];
 
   view: [number,number] = [700, 400];
   showXAxis = true;
@@ -20,7 +20,7 @@ export class GraphTemperatureComponent implements OnInit {
   showXAxisLabel = true;
   xAxisLabel = 'Date';
   showYAxisLabel = true;
-  yAxisLabel = 'Temperature';
+  yAxisLabel = 'Pression';
   timeline = false;
   xAxisTickFormatting = 'formatDate'; 
   colorScheme = {domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']};
@@ -31,28 +31,27 @@ export class GraphTemperatureComponent implements OnInit {
   constructor(private donneesGraphWebService : DonneesGraphWebService) { }
 
   ngOnInit(): void {
-    this.getTemperatures();
-    console.log('Init Temperature');
+    console.log('Init Pression');
+    this.getPressions();
+  }
 
-    /* this.$data.subscribe(data => {
-      this.listeTemperature = data;
-    }); */
-  }  
-
-  get $data(): Observable<any[]> {
-    return this.donneesGraphWebService.getTemperatures().pipe(
+  /* get $data(): Observable<any[]> {
+    return this.donneesGraphWebService.getPressions().pipe(
       map(data => [data])
     );
-  }
+  } */
 
-  getTemperatures(){
-    this.donneesGraphWebService.getTemperatures()
+  getPressions() : void {
+    console.log('GraphPressionComponent.getPressions');
+    this.donneesGraphWebService.getPressions()
     .subscribe((data: any[]) => {
-      this.temperatures = [data];
+      this.pressions = [data];
+      console.log('Pressions: ', this.pressions);
     });
   }
-  
+
   onSelect(event: any) {
     console.log(event);
   }
+
 }

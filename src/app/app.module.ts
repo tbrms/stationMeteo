@@ -6,16 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AfficheurComponent } from './afficheur/afficheur.component';
 import { BulletinMeteoWebService } from 'src/shared/webservices/bulletinMeteo.webservice';
-import { TemperatureDtoWebService } from 'src/shared/webservices/temperatureDto.webservice';
+import { DonneesGraphWebService } from 'src/shared/webservices/donneesGraph.webservice';
 import { GraphTemperatureComponent } from './graph-temperature/graph-temperature.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { GraphPressionComponent } from './graph-pression/graph-pression.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AfficheurComponent,
-    GraphTemperatureComponent
+    GraphTemperatureComponent,
+    GraphPressionComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
   ],
   providers: [
     BulletinMeteoWebService,
-    TemperatureDtoWebService
+    DonneesGraphWebService
   ],
   bootstrap: [AppComponent]
 })
