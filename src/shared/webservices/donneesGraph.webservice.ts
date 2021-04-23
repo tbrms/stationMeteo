@@ -16,6 +16,7 @@ export class DonneesGraphWebService {
   baseUrl : string;
   requeteTemperature = 'temperatureSeries/';
   requetePression = 'pressionSeries/';
+  requeteHumidite = 'humiditeSeries/';
   nombreElements = 24;
 
   constructor(private http: HttpClient) {
@@ -30,6 +31,11 @@ export class DonneesGraphWebService {
   getPressions(): Observable<any[]> {
     console.log('DonneesGraphWebService.getPressions()');
     return this.getDonnees(this.requetePression);
+  }
+
+  getHumidites(): Observable<any[]> {
+    console.log('DonneesGraphWebService.getHumidites()');
+    return this.getDonnees(this.requeteHumidite);
   }
 
   getDonnees(requete : string): Observable<any[]> {

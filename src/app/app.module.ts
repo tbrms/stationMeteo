@@ -11,13 +11,15 @@ import { GraphTemperatureComponent } from './graph-temperature/graph-temperature
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { GraphPressionComponent } from './graph-pression/graph-pression.component';
+import { GraphHumiditeComponent } from './graph-humidite/graph-humidite.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AfficheurComponent,
     GraphTemperatureComponent,
-    GraphPressionComponent
+    GraphPressionComponent,
+    GraphHumiditeComponent
   ],
   imports: [
     BrowserModule,
